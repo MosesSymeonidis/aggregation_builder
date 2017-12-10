@@ -1,5 +1,5 @@
 from aggregation_builder import AggregationQueryBuilder
-from aggregation_builder.Operators import *
+from aggregation_builder.operators import *
 import unittest
 import datetime
 

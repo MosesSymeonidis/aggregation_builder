@@ -1,5 +1,5 @@
-from Utils.AggregationBuilder.AggregationBuilder import AggregationQueryBuilder
-from Utils.AggregationBuilder.Operators import *
+from aggregation_builder import AggregationQueryBuilder
+from aggregation_builder.operators import *
 import unittest
 
 
