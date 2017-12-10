@@ -16,8 +16,7 @@ if 'build' in os.listdir('.'):
 setup(
     name='aggregation_builder',
     version='0.0.1',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    package_dir={'': '.'},
     # py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
     license='',
     author='Moses Symeonidis',

@@ -1,2 +1,2 @@
-from query_builder.query_builder import AggregationQueryBuilder
-from query_builder.query_set import AggregateQuerySet
+from .query_set import AggregateQuerySet
+from .query_builder import AggregationQueryBuilder

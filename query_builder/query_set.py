@@ -1,5 +1,5 @@
 from mongoengine.queryset import QuerySet
-from aggregation_builder import AggregationQueryBuilder
+from .query_builder import AggregationQueryBuilder
 
 
 class AggregateQuerySet(QuerySet):
