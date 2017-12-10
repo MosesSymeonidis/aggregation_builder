@@ -1,5 +1,7 @@
 import pymongo
 
+__version__ = '0.0.1'
+
 if pymongo.version_tuple[0] < 3:
     IS_PYMONGO_3 = False
 else:
