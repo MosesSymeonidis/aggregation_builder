@@ -25,5 +25,5 @@ setup(
     install_requires=required,
     include_package_data=True,
     url='https://github.com/MosesSymeonidis/aggregation_builder',
-    packages=['query_builder']
+    packages=['aggregation_builder']
 )
