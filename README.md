@@ -3,8 +3,24 @@
 This is a library that generates programmatically aggregation queries for mongodb. 
 
 
-## Getting Started
+### Installing
 
+You can install library via setup file simple by:
+
+
+```
+python setup.py install
+```
+
+or via pip, in project folder you can run:
+
+```
+pip install .
+```
+
+Finally, you can just copy the aggregation_builder folder in your project and import the modules that you want.
+
+## Examples
 For example the following aggregation query:
 ```
 db.collection.aggregate(
@@ -41,23 +57,6 @@ class Traffic(DynamicDocument):
     
 Traffic.objects.aggregation_builder.group(id='response.data',first_obj=FIRST('$$ROOT')).skip(5).limit(7).execute()
 ```
-
-### Installing
-
-You can install library via setup file simple by:
-
-
-```
-python setup.py install
-```
-
-or via pip, in project folder you can run:
-
-```
-pip install .
-```
-
-Finally, you can just copy the aggregation_builder folder in your project and import the modules that you want.
 
 ## License
 
