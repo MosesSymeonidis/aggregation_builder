@@ -2,6 +2,9 @@
 
 This is a library that generates programmatically aggregation queries for mongodb. 
 
+
+## Getting Started
+
 For example the following aggregation query:
 ```
 db.collection.aggregate(
@@ -38,3 +41,30 @@ class Traffic(DynamicDocument):
     
 Traffic.objects.aggregation_builder.group(id='response.data',first_obj=FIRST('$$ROOT')).skip(5).limit(7).execute()
 ```
+
+### Installing
+
+You can install library via setup file simple by:
+
+
+```
+python setup.py install
+```
+
+or via pip, in project folder you can run:
+
+```
+pip install .
+```
+
+Finally, you can just copy the aggregation_builder folder in your project and import the modules that you want.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgments
+
+* The main purpose of this library is to handle mongo's aggregation framework. For this reason, hall library is based on [aggregation framework faculties](https://docs.mongodb.com/v3.4/aggregation/)
+
+* This library is inspired by [MongoEngine](http://mongoengine.org/) thus is created as an extra tool of this
