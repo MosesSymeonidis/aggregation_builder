@@ -7,7 +7,6 @@ else:
 
 
 class AggregationQueryBuilder(object):
-
     def __init__(self, query_set_obj=None, raw=None):
         self._q = []
         if raw:
@@ -76,13 +75,17 @@ class AggregationQueryBuilder(object):
 
         return self
 
-    def match(self, **query):
+    def match(self, query_dict=None, **query):
         """
         Adds a match stage at the query
+        :param query_dict: The params as dict
         :param query: The parameters of the query
         :return: The current object
         """
-        self._q.append({'$match': query})
+        if query_dict:
+            self._q.append({'$match': query_dict})
+        else:
+            self._q.append({'$match': query})
         return self
 
     def group(self, id=None, **kwargs):
@@ -133,8 +136,7 @@ class AggregationQueryBuilder(object):
         """
         query = {}
         for field in kwargs:
-            if kwargs[field] in [1, -1]:
-                query[field] = kwargs[field]
+            query[field] = kwargs[field]
         self._q.append({'$sort': query})
         return self
 
