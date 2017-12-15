@@ -7,8 +7,9 @@ else:
 
 
 class AggregationQueryBuilder(object):
-    def __init__(self, query_set_obj=None, raw=None):
+    def __init__(self, query_set_obj=None, raw=None, is_mongoengine=False):
         self._q = []
+        self.is_mongoengine = is_mongoengine
         if raw:
             self.add_raw(raw=raw)
         self.query_set_obj = query_set_obj
@@ -219,7 +220,12 @@ class AggregationQueryBuilder(object):
         """
         if self.query_set_obj is None:
             return []
-        result = self.query_set_obj.aggregate(*self.get_query())
+
+        if self.is_mongoengine:
+            result = self.query_set_obj.aggregate(*self.get_query())
+        else:
+            result = self.query_set_obj.aggregate(self.get_query())
+
         if IS_PYMONGO_3:
             result = list(result)
         else:

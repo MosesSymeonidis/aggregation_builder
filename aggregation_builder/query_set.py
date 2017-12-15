@@ -7,4 +7,4 @@ class AggregateQuerySet(QuerySet):
 
     @property
     def aggregation_builder(self):
-        return self.__AggregationQueryBuilder__(self)
+        return self.__AggregationQueryBuilder__(self, is_mongoengine=True)
