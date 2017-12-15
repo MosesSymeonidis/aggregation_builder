@@ -1,9 +1,15 @@
+import mongomock
+from datetime import datetime
 from aggregation_builder import AggregationQueryBuilder
 from aggregation_builder.operators import *
 import unittest
 
 
-class ArithmeticOperatorsTests(unittest.TestCase):
+def ISODate(str):
+    return datetime.strptime(str, '%Y-%m-%dT%H:%M:%SZ')
+
+
+class QueryDictTests(unittest.TestCase):
     def test_limit(self):
         query = [
             {
@@ -227,6 +233,53 @@ class ArithmeticOperatorsTests(unittest.TestCase):
         ).get_query()
 
         self.assertListEqual(generated_query, query)
+
+    def test_group(self):
+        query = [
+            {
+                '$group': {
+                    '_id': {'month': {'$month': "$date"}, 'day': {'$dayOfMonth': "$date"}, 'year': {'$year': "$date"}},
+                    'totalPrice': {'$sum': {'$multiply': ["$price", "$quantity"]}},
+                    'averageQuantity': {'$avg': "$quantity"},
+                    'count': {'$sum': 1}
+                }
+            }
+        ]
+
+        generated_query = AggregationQueryBuilder().group(
+            id=dict(
+                month=MONTH("$date"),
+                day=DAY_OF_MONTH("$date"),
+                year=YEAR("$date")
+            ),
+            totalPrice=SUM(MULTIPLY("$price", "$quantity")),
+            averageQuantity=AVG("$quantity"),
+            count=SUM(1)
+        ).get_query()
+
+        self.assertListEqual(generated_query, query)
+
+    def test_null_group(self):
+        query = [
+            {
+                '$group': {
+                    '_id': None,
+                    'totalPrice': {'$sum': {'$multiply': ["$price", "$quantity"]}},
+                    'averageQuantity': {'$avg': "$quantity"},
+                    'count': {'$sum': 1}
+                }
+            }
+        ]
+
+        generated_query = AggregationQueryBuilder().group(
+            id=None,
+            totalPrice=SUM(MULTIPLY("$price", "$quantity")),
+            averageQuantity=AVG("$quantity"),
+            count=SUM(1)
+        ).get_query()
+
+        self.assertListEqual(generated_query, query)
+
 
 if __name__ == '__main__':
     unittest.main()
