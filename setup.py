@@ -16,7 +16,7 @@ version = version_line.replace("__version__ = ", "").replace("'", "")
 setup(
     name='aggregation_builder',
     version=version,
-    packages=['aggregation_builder'],
+    packages=['aggregation_builder', 'aggregation_builder.operators'],
     license='LICENSE',
     author='Moses Symeonidis',
     author_email='msymewnidhs2113@yahoo.gr',
