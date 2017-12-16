@@ -24,6 +24,6 @@ setup(
     install_requires=required,
     include_package_data=True,
     url='https://github.com/MosesSymeonidis/aggregation_builder',
-    download_url='https://github.com/MosesSymeonidis/aggregation_builder/archive/0.1.tar.gz',
+    download_url='https://github.com/MosesSymeonidis/aggregation_builder/archive/master.tar.gz',
     keywords=['mongodb', 'aggregation']
 )
