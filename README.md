@@ -66,4 +66,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 * The main purpose of this library is to handle mongo's aggregation framework. For this reason, whole library is based on [aggregation framework faculties](https://docs.mongodb.com/v3.4/aggregation/)
 
-* This library is inspired by [MongoEngine](http://mongoengine.org/) thus is created as an extra tool of this
+* This library is inspired by [MongoEngine](http://mongoengine.org/) thus is created as an extra tool for this
