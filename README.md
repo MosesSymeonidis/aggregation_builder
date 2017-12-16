@@ -15,7 +15,7 @@ python setup.py install
 or via pip, in project folder you can run:
 
 ```
-pip install .
+pip install aggregation_builder
 ```
 
 Finally, you can just copy the aggregation_builder folder in your project and import the modules that you want.
