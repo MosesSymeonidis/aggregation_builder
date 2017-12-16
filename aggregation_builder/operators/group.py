@@ -6,7 +6,7 @@ def SUM(*expression):
     :param expression: expression or variables
     :return: Aggregation operator
     """
-    return {'$sum': list(expression)} if len(expression) > 1 else {'$sum': expression[0]}
+    return {'$sum': list(expression)} if len(expression) > 1 else {'$sum': expression[0]} if expression else {}
 
 
 def AVG(*expression):
@@ -17,7 +17,7 @@ def AVG(*expression):
     :param expression: expression or variables
     :return: Aggregation operator
     """
-    return {'$avg': list(expression)} if len(expression) > 1 else {'$avg': expression[0]}
+    return {'$avg': list(expression)} if len(expression) > 1 else {'$avg': expression[0]} if expression else {}
 
 
 def FIRST(expression):
@@ -52,7 +52,7 @@ def MAX(*expression):
     :param expression: expression/expressions or variables
     :return: Aggregation operator
     """
-    return {'$max': list(expression)} if len(expression) > 1 else {'$max': expression[0]}
+    return {'$max': list(expression)} if len(expression) > 1 else {'$max': expression[0]} if expression else {}
 
 
 def MIN(*expression):
@@ -63,7 +63,7 @@ def MIN(*expression):
     :param expression: expression/expressions or variables
     :return: Aggregation operator
     """
-    return {'$min': list(expression)} if len(expression) > 1 else {'$min': expression[0]}
+    return {'$min': list(expression)} if len(expression) > 1 else {'$min': expression[0]} if expression else {}
 
 
 def PUSH(expression):
@@ -100,7 +100,7 @@ def STD_DEV_POP(*expression):
     :param expression: expression/expressions
     :return: Aggregation operator
     """
-    return {'$stdDevPop': expression} if len(expression) > 1 else {'$stdDevPop': expression[0]}
+    return {'$stdDevPop': expression} if len(expression) > 1 else {'$stdDevPop': expression[0]} if expression else {}
 
 
 def STD_DEV_SAMP(*expression):
@@ -112,4 +112,4 @@ def STD_DEV_SAMP(*expression):
     :param expression: expression/expressions
     :return: Aggregation operator
     """
-    return {'$stdDevSamp': list(expression)} if len(expression) > 1 else {'$stdDevSamp': expression[0]}
+    return {'$stdDevSamp': list(expression)} if len(expression) > 1 else {'$stdDevSamp': expression[0]} if expression else {}
