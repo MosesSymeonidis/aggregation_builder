@@ -2,8 +2,8 @@ from setuptools import setup
 import subprocess
 import os
 
-with open('requirements.txt', 'r') as f:
-    required = f.read().splitlines()
+# with open('requirements.txt', 'r') as f:
+#     required = f.read().splitlines()
 
 if 'dist' in os.listdir('.'):
     subprocess.call(["rm", "-rf", "dist/"])
@@ -21,7 +21,10 @@ setup(
     author='Moses Symeonidis',
     author_email='msymewnidhs2113@yahoo.gr',
     description='Package that implements a simple mongodb aggregation builder.',
-    install_requires=required,
+    install_requires=[
+        "pymongo >= 3.5.1",
+        "mongoengine >= 0.15.0"
+    ],
     include_package_data=True,
     url='https://github.com/MosesSymeonidis/aggregation_builder',
     download_url='https://github.com/MosesSymeonidis/aggregation_builder/archive/master.tar.gz',
